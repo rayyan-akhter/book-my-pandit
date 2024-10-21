@@ -1,0 +1,36 @@
+.header {
+  position: absolute;
+  top: calc(14 * var(--current-device-width) / var(--ideal-viewport-width));
+  left: calc(15 * var(--current-device-width) / var(--ideal-viewport-width));
+  width: calc(1698 * var(--current-device-width) / var(--ideal-viewport-width));
+  height: calc(78 * var(--current-device-width) / var(--ideal-viewport-width));
+  background: rgba(219, 44, 29, 1);
+  box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: calc(
+    16 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+  padding-right: calc(
+    140 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+  z-index: 10;
+  font-family: "Poppins", sans-serif;
+}
+.header img {
+  width: calc(69 * var(--current-device-width) / var(--ideal-viewport-width));
+  width: calc(69 * var(--current-device-width) / var(--ideal-viewport-width));
+}
+.header-signup {
+  width: calc(247 * var(--current-device-width) / var(--ideal-viewport-width));
+  height: calc(28 * var(--current-device-width) / var(--ideal-viewport-width));
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: calc(
+    20 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+}

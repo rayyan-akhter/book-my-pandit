@@ -1,0 +1,29 @@
+.detailsLayout {
+  display: flex;
+}
+
+.detailsLayout-container {
+  width: var(--current-device-width);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.coverImage {
+    position: absolute;
+    bottom: calc(47 * var(--current-device-width) / var(--ideal-viewport-width));
+    width: var(--current-device-width);
+    height: 100vh;
+    z-index: 1;
+  }
+.image3 {
+    position: absolute;
+  width: calc(2240 * var(--current-device-width) / var(--ideal-viewport-width));
+  height: calc(
+    1879 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+  bottom: calc(-739 * var(--current-device-width) / var(--ideal-viewport-width));
+
+
+}

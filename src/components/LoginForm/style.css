@@ -1,0 +1,51 @@
+.loginForm-container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(30 * var(--current-device-width) / var(--ideal-viewport-width));
+}
+.login-header {
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: calc(
+    64 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+}
+.login-input {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10 * var(--current-device-width) / var(--ideal-viewport-width));
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: calc(
+    24 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+}
+.login-input input {
+  height: calc(40 * var(--current-device-width) / var(--ideal-viewport-width));
+  min-width: calc(
+    240 * var(--current-device-width) / var(--ideal-viewport-width)
+  );
+  width: calc(426 * var(--current-device-width) / var(--ideal-viewport-width));
+
+  background-color: white;
+  filter: none;
+  border-top: 1px solid  rgba(217, 217, 217, 1);
+  border: none;
+  z-index: 1;
+  border-radius: calc(5 * var(--current-device-width) / var(--ideal-viewport-width));
+  padding-left: calc(10 * var(--current-device-width) / var(--ideal-viewport-width));
+
+}
+.login-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(219, 44, 29, 1);
+    height: calc(53 * var(--current-device-width) / var(--ideal-viewport-width));
+    border-top: 1px solid rgba(227, 26, 26, 1);
+    color: rgba(245, 245, 245, 1);
+    border-radius: calc(5 * var(--current-device-width) / var(--ideal-viewport-width));
+    filter: none;
+    opacity: none;
+    z-index: 1;
+}

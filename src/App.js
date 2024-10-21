@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import { Children, useEffect, useState } from "react";
+import "./App.css";
+import Login from "./components/Login/Login";
+import Profile from "./components/Profile/Profile";
+import Category from "./components/Category/Category";
 
 function App() {
+  const [currIndex, setCurrIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response = await fetch("https://test.backend.urbanoinfotech.com/swagger/?format=openapi")
+        const data = await response.json();
+        console.log("fetched data", data)
+      }
+      catch(error){
+        console.log("Error in fethcing",error)
+      }
+    };
+    fetchData();
+    
+  }, []);
+
+  const getNextStep = () => {
+    setCurrIndex((prev) => prev + 1);
+  };
+
+  const [fields, setFields] = useState({
+    number: "",
+    otp: "",
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Stepper index={currIndex}>
+        <Login
+          label="Enter Mobile no."
+          value={fields.number}
+          onInput={(text) => setFields((prev) => ({ ...prev, number: text }))}
+          onSubmit={getNextStep}
+        />
+        <Login
+          label="Enter OTP"
+          value={fields.otp}
+          onInput={(text) => setFields((prev) => ({ ...prev, otp: text }))}
+          onSubmit={getNextStep}
+          isOTP
+        />
+        {/* <Profile /> */}
+        <Category />
+      </Stepper>
+      {/* <button onClick={() => setCurrIndex(1)}>Adeel</button> */}
     </div>
   );
+}
+
+function Stepper(props) {
+  const { index } = props;
+  let children = Children.toArray(props.children);
+  return children[index];
 }
 
 export default App;

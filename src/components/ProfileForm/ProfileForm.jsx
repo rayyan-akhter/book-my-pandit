@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import profilePic from "../../assets/Group 114.png";
 
-const DetailsForm = () => {
+const DetailsForm = ({onSubmit}) => {
   return (
     <div className="detailsForm">
       <div className="detailsForm-header">
@@ -23,7 +23,7 @@ const DetailsForm = () => {
           <input type="number" />
         </div>
       </div>
-      <div className="detailsForm-button">
+      <div className="detailsForm-button" onClick={()=>onSubmit()}>
         save
       </div>
     </div>

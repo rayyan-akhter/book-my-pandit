@@ -1,23 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./style.css";
 
 const LoginForm = ({ label, onSubmit, value, isOTP, onInput }) => {
-  const [OTP] = useState("1234");
 
   const handleSubmit = () => {
     if (!value) return;
     if (isOTP) {
-      const isOTPValid = value === OTP;
-      if (isOTPValid) onSubmit();
+      const storedNumber = localStorage.getItem("mobileNumber");
+      if(storedNumber){
+        const lastFourDigit = storedNumber.slice(-4)
+        const isOtpValid = value === lastFourDigit;
+        if(isOtpValid){
+          onSubmit();
+        } else{
+          alert("otp is incorrect")
+        }
+      } else{
+        console.log("mobile number not found")
+      }
+
       return;
     }
+    localStorage.setItem("mobileNumber", value);
+    const lastFourDigits = value.slice(-4); 
+    localStorage.setItem("lastFourDigits", lastFourDigits);
     onSubmit();
   };
 
-  useEffect(() => {
-    if (!isOTP) return;
-    //call api to fetch otp
-  }, [isOTP]);
   
   return (
     <div className="loginForm-container">

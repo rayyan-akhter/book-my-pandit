@@ -9,17 +9,17 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try{
-        const response = await fetch("https://test.backend.urbanoinfotech.com/swagger/?format=openapi")
+      try {
+        const response = await fetch(
+          "https://test.backend.urbanoinfotech.com/swagger/?format=openapi"
+        );
         const data = await response.json();
-        console.log("fetched data", data)
-      }
-      catch(error){
-        console.log("Error in fethcing",error)
+        console.log("fetched data", data);
+      } catch (error) {
+        console.log("Error in fethcing", error);
       }
     };
     fetchData();
-    
   }, []);
 
   const getNextStep = () => {
@@ -40,16 +40,15 @@ function App() {
           onSubmit={getNextStep}
         />
         <Login
-          label="Enter OTP"
+          label="Enter OTP / last four digit of your number "
           value={fields.otp}
           onInput={(text) => setFields((prev) => ({ ...prev, otp: text }))}
           onSubmit={getNextStep}
           isOTP
         />
-        {/* <Profile /> */}
+        <Profile  onSubmit={getNextStep} />
         <Category />
       </Stepper>
-      {/* <button onClick={() => setCurrIndex(1)}>Adeel</button> */}
     </div>
   );
 }

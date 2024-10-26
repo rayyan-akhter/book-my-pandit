@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../header/header";
 import "./style.css";
 import backgroundImg from "../../assets/design.png";
 import coverImg from "../../assets/image 1.png";
+import { CategoryData }from "../../data.js"
 
 const Category = () => {
-  const divArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  const [ categories, setCategories] = useState([]);
+
+  useEffect(()=>{
+    
+    setCategories(CategoryData);
+    console.log(categories,"categories")  
+  },[])
+
+
   return (
     <div className="categoryLayout">
       <Header />
@@ -13,16 +22,15 @@ const Category = () => {
         <div className="category-content">
           <div className="category-content-heading">Categories of Pooja</div>
           <div className="categories">
-            {divArray.map((item) => (
-              <div className="category">
+            {categories.map((category) => (
+              <div className="category" key={category.id}>
                 <img src={coverImg} alt="" />
                 <div className="category-left">
                   <div className="category-left-top">
-                    Graph Pravesh <span>( गृह प्रवेश)</span>{" "}
+                    {category.name} <span> ({category.translation})</span>{" "}
                   </div>
                   <div className="category-left-bottom">
-                    The Puja is performed by a Pandit ji by doing Ganesh puja,
-                    along with the Navagraha Jaaps.
+                  {category.description}
                   </div>
                 </div>
               </div>
